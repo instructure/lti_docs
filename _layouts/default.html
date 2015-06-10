@@ -2,19 +2,19 @@
 <html>
 
   {% include head.html %}
-
+  <script src="/vendor/js/jquery.min.js"></script>
+  <script src="/vendor/js/bootstrap.min.js"></script>
   <body>
-
     {% include header.html %}
-
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
+    <div class="container-fluid">
+      <div class="row">
+        {% include sidebar.html %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          {{ content }}
+        </div>
       </div>
     </div>
-
     {% include footer.html %}
-
   </body>
 
 </html>
