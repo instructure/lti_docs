@@ -10,14 +10,8 @@ url: "http://yourdomain.com" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 github_username:  jekyll
 
-collections:
-  - "lti1_docs"
-
 # Build settings
 markdown: kramdown
-
-gems:
-  - octopress-debugger
 
 exclude:
   - "bower_components"
