@@ -16,10 +16,25 @@ In order to run the site you will need a few things installed:
  - [Ruby](http://www.ruby-lang.org/) (version >= 1.8.7)
  - [RubyGems](http://rubygems.org/) (version >= 1.3.7)
  - [Bundler](http://gembundler.com/)
+ - [Bower](http://bower.io/)
  - [Node.js](https://nodejs.org/)
  - [Grunt](http://gruntjs.com/)
  
 ### Installation
+
+    $ bundle install
+    $ npm install -dev
+    $ bower install
+
+### Usage
+    
+Running the server
+
+    $ bundle exec grunt
+    
+Building the site
+ 
+    $ bundle grunt build
 
 
 ### Setup for gh-pages
@@ -46,3 +61,7 @@ Now create the initial commit
 Switch back to your master branch, and clone the gh-pages branch into _site
 
     $ git clone {your repository} -b gh-pages _site
+
+#### deploy to github pages
+
+    bundle exec rake deploy
