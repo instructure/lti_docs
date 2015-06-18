@@ -20,4 +20,29 @@ In order to run the site you will need a few things installed:
  - [Grunt](http://gruntjs.com/)
  
 ### Installation
+
+
+### Setup for gh-pages
+If you want to use gh-pages you need to setup your _site directory to point to the gh_pages branch.
  
+First create an orphan branch with an initial commit
+
+    $ cd repository
+    
+    $ git checkout --orphan gh-pages
+    # Creates our branch, without any parents (it's an orphan!)
+    # Switched to a new branch 'gh-pages'
+    
+    $ git rm -rf .
+    
+    
+Now create the initial commit
+
+    $ echo "My Page" > index.html
+    $ git add index.html
+    $ git commit -a -m "First pages commit"
+    $ git push origin gh-pages
+    
+Switch back to your master branch, and clone the gh-pages branch into _site
+
+    $ git clone {your repository} -b gh-pages _site
