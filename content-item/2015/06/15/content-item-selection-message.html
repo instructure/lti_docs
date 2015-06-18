@@ -6,14 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>LTI Documentation</title>
-  <meta name="description" content="">
+  <title>ContentItemSelection</title>
+  <meta name="description" content="Post Params">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/lti_docs/vendor/css/bootstrap.min.css">
 
   <link rel="stylesheet" href="/lti_docs/css/main.css">
-  <link rel="canonical" href="http://instructure.github.io/lti_docs/">
+  <link rel="canonical" href="http://instructure.github.io/lti_docs/content-item/2015/06/15/content-item-selection-message.html">
   <link rel="alternate" type="application/rss+xml" title="LTI Documentation" href="http://instructure.github.io/lti_docs/feed.xml" />
 </head>
 
@@ -48,14 +48,18 @@
   <div>
     
     
-    <a data-toggle="collapse" href="#content-item-section" aria-expanded="false" aria-controls="collapseSubsection">
+    
+    
+    <a data-toggle="collapse" href="#content-item-section" aria-expanded="true" aria-controls="collapseSubsection">
       <h3>ContentItem</h3>
     </a>
-    <ul id="content-item-section" class="nav nav-sidebar collapse ">
+    <ul id="content-item-section" class="nav nav-sidebar collapse in">
       
-      <li >
+      <li class="active">
           <a href="/lti_docs/content-item/2015/06/15/content-item-selection-message.html">
             ContentItemSelection
+            
+              <span class="sr-only">(current)</span>
             
           </a>
         </li>
@@ -79,23 +83,60 @@
   
 </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <div class="home">
+          <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">ContentItemSelection</h1>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Content-item</span>
+  <article class="post-content">
+    <h3 id="post-params">Post Params</h3>
 
-        <h2>
-          <a class="post-link" href="/lti_docs"></a>
-        </h2>
-      </li>
-    
-  </ul>
+<ul>
+  <li>
+    <p><strong>lti_message_type</strong> (<em>required</em>): Constant value of: <code>ContentItemSelection</code></p>
+  </li>
+  <li>
+    <p><strong>lti_version</strong> (<em>required</em>): The lti version for the launch</p>
+  </li>
+  <li>
+    <p><strong>content_items</strong>: JSON document containing an array of content-items</p>
+  </li>
+  <li>
+    <p><strong>data</strong>: The value in the data parameter that was specified in the ContentItemSelectionRequest message</p>
+  </li>
+  <li>
+    <p><strong>lti_msg</strong>: A message the tool consumer should display to the end user. (only valid if there where no errors)</p>
+  </li>
+  <li>
+    <p><strong>lti_log</strong>: A message the tool consumer can log. (only valid if there where no errors)</p>
+  </li>
+  <li>
+    <p><strong>lti_errormsg</strong>: A message the tool consumer should display to the user explaing the reason for the error. (only 
+valid if there was an error)</p>
+  </li>
+  <li>
+    <p><strong>lti_errorlog</strong>: A message the tool consumer can log. (only valid if there was an error)</p>
+  </li>
+</ul>
 
-  <p class="rss-subscribe">subscribe <a href="/lti_docs/feed.xml">via RSS</a></p>
+<h3 id="contentitems"><strong>content_items</strong></h3>
+
+<p>The content-items field is set to a serialized JSON string. The JSON contains an array of content-item objects, wrapped 
+inside a JSON-LD graph.</p>
+
+<p>The JSON-LD graph looks like this:</p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;@context&quot;</span> <span class="p">:</span> <span class="s2">&quot;http://purl.imsglobal.org/ctx/lti/v1/ContentItem&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;@graph&quot;</span> <span class="p">:</span> <span class="p">[</span>
+              <span class="err">(Content-Item</span> <span class="err">objects</span> <span class="err">go</span> <span class="err">here)</span>
+              <span class="p">]</span>
+<span class="p">}</span></code></pre></div>
+
+<p>There are 3 types of Content-Item</p>
+
+  </article>
 
 </div>
 

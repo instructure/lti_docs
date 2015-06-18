@@ -6,14 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>LTI Documentation</title>
-  <meta name="description" content="">
+  <title>Getting Started</title>
+  <meta name="description" content="Introduction">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/lti_docs/vendor/css/bootstrap.min.css">
 
   <link rel="stylesheet" href="/lti_docs/css/main.css">
-  <link rel="canonical" href="http://instructure.github.io/lti_docs/">
+  <link rel="canonical" href="http://instructure.github.io/lti_docs/content-item/2015/06/09/content-item-getting-started.html">
   <link rel="alternate" type="application/rss+xml" title="LTI Documentation" href="http://instructure.github.io/lti_docs/feed.xml" />
 </head>
 
@@ -48,10 +48,12 @@
   <div>
     
     
-    <a data-toggle="collapse" href="#content-item-section" aria-expanded="false" aria-controls="collapseSubsection">
+    
+    
+    <a data-toggle="collapse" href="#content-item-section" aria-expanded="true" aria-controls="collapseSubsection">
       <h3>ContentItem</h3>
     </a>
-    <ul id="content-item-section" class="nav nav-sidebar collapse ">
+    <ul id="content-item-section" class="nav nav-sidebar collapse in">
       
       <li >
           <a href="/lti_docs/content-item/2015/06/15/content-item-selection-message.html">
@@ -67,9 +69,11 @@
           </a>
         </li>
       
-      <li >
+      <li class="active">
           <a href="/lti_docs/content-item/2015/06/09/content-item-getting-started.html">
             Getting Started
+            
+              <span class="sr-only">(current)</span>
             
           </a>
         </li>
@@ -79,23 +83,74 @@
   
 </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <div class="home">
+          <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">Getting Started</h1>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Content-item</span>
+  <article class="post-content">
+    <h2 id="introduction">Introduction</h2>
 
-        <h2>
-          <a class="post-link" href="/lti_docs"></a>
-        </h2>
-      </li>
-    
-  </ul>
+<p>Content-Item is an extension to LTI that allows data to be passed back to the Tool Consumer in context of an LTI Launch.
+ A few common use cases are:</p>
 
-  <p class="rss-subscribe">subscribe <a href="/lti_docs/feed.xml">via RSS</a></p>
+<ul>
+  <li>
+    <p>Providing a teacher the ability to select a customized LTI launch link from the tool provider 
+to be placed in the the tool consumer.</p>
+  </li>
+  <li>
+    <p>Allowing a student to submit an attachment for an assignment that is provided by a tool provider.</p>
+  </li>
+  <li>
+    <p>Embedding custom content into a rich text editor from a tool provider.</p>
+  </li>
+</ul>
+
+<h2 id="content-item-flow">Content-Item Flow</h2>
+
+<p>The content-item flow looks from a high level looks like this:</p>
+
+<blockquote>
+  <p>insert swim lane diagram here to show flow of content-item</p>
+</blockquote>
+
+<h2 id="content-item-sample-messages">Content-Item Sample Messages</h2>
+
+<h3 id="contentitemrequest-tool-consumer---tool-provider">ContentItemRequest: Tool Consumer -&gt; Tool Provider</h3>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">lti_message_type: ContentItemSelectionRequest
+lti_version: LTI-1p0
+accept_media_types: application/vnd.ims.lti.v1.ltilink
+accept_presentation_document_targets: frame,window
+content_item_return_url: http://lms.example/courses/5/external_content/success/external_tool_dialog</code></pre></div>
+
+<h3 id="contentitemselection-tool-consumer---tool-provider">ContentItemSelection: Tool Consumer &lt;- Tool Provider</h3>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">lti_message_type: ContentItemSelection
+lti_version: LTI-1p0
+content_items: {
+                 &quot;@context&quot;: &quot;http://purl.imsglobal.org/ctx/lti/v1/ContentItem&quot;,
+                 &quot;@graph&quot;: [
+                   {
+                     &quot;@type&quot;: &quot;LtiLink&quot;,
+                     &quot;@id&quot;: &quot;http://example.com/messages/launch&quot;,
+                     &quot;url&quot;: &quot;http://example.com/messages/launch&quot;,
+                     &quot;title&quot;: &quot;test&quot;,
+                     &quot;text&quot;: &quot;text&quot;,
+                     &quot;mediaType&quot;: &quot;application/vnd.ims.lti.v1.ltilink&quot;,
+                     &quot;placementAdvice&quot;: {
+                       &quot;displayWidth&quot;: 800,
+                       &quot;presentationDocumentTarget&quot;: &quot;frame&quot;,
+                       &quot;displayHeight&quot;: 600
+                     }
+                   }
+                 ]
+               }</code></pre></div>
+
+
+  </article>
 
 </div>
 
