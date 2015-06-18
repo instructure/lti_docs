@@ -11,7 +11,7 @@
     <ul id="content-item-section" class="nav nav-sidebar collapse {% if active %}in{% endif %}">
       {% for post in site.categories[section.category] %}
       <li {% if page.url == post.url %}class="active"{% endif %}>
-          <a href="{{ post.url}}">
+          <a href="{{ site.baseurl }}{{ post.url}}">
             {{ post.title }}
             {% if page.url == post.url %}
               <span class="sr-only">(current)</span>

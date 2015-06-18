@@ -2,8 +2,8 @@
 <html>
 
   {% include head.html %}
-  <script src="/vendor/js/jquery.min.js"></script>
-  <script src="/vendor/js/bootstrap.min.js"></script>
+  <script src="{{ "/vendor/js/jquery.min.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ "/vendor/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
   <body>
     {% include header.html %}
     <div class="container-fluid">

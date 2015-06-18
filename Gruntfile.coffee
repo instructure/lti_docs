@@ -37,6 +37,9 @@ module.exports = (grunt) ->
       jekyll:
         cmd: "jekyll build --trace"
 
+      jekyll_serve:
+        cmd: "jekyll serve --baseurl ''"
+
     watch:
       options:
         livereload: true
@@ -69,9 +72,8 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask "serve", [
-    "build"
-    "connect:server"
-    "watch"
+    "copy"
+    "exec:jekyll_serve"
   ]
 
   grunt.registerTask "default", [
