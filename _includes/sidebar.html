@@ -9,7 +9,8 @@
       <h3>{{section.name}}</h3>
     </a>
     <ul id="content-item-section" class="nav nav-sidebar collapse {% if active %}in{% endif %}">
-      {% for post in site.categories[section.category] %}
+      {% assign posts = site.categories[section.category] | sort: 'position', 'last' %}
+      {% for post in posts %}
       <li {% if page.url == post.url %}class="active"{% endif %}>
           <a href="{{ site.baseurl }}{{ post.url}}">
             {{ post.title }}
