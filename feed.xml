@@ -5,8 +5,8 @@
     <description></description>
     <link>http://instructure.github.io/lti_docs/</link>
     <atom:link href="http://instructure.github.io/lti_docs/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 18 Jun 2015 15:22:41 -0600</pubDate>
-    <lastBuildDate>Thu, 18 Jun 2015 15:22:41 -0600</lastBuildDate>
+    <pubDate>Thu, 18 Jun 2015 15:51:05 -0600</pubDate>
+    <lastBuildDate>Thu, 18 Jun 2015 15:51:05 -0600</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -166,15 +166,10 @@ to be placed in the the tool consumer.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;content-item-flow&quot;&gt;Content-Item Flow&lt;/h2&gt;
+&lt;h2 id=&quot;content-item-process&quot;&gt;Content-Item Process&lt;/h2&gt;
 
-&lt;p&gt;The content-item flow looks from a high level looks like this:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;insert swim lane diagram here to show flow of content-item&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;content-item-sample-messages&quot;&gt;Content-Item Sample Messages&lt;/h2&gt;
+&lt;p&gt;The first step in the content-item process is the sending of the &lt;code&gt;ContentItemSelectionRequest&lt;/code&gt; message from the Tool 
+Consumer to the Tool Provider.  An example message is included below:&lt;/p&gt;
 
 &lt;h3 id=&quot;contentitemrequest-tool-consumer---tool-provider&quot;&gt;ContentItemRequest: Tool Consumer -&amp;gt; Tool Provider&lt;/h3&gt;
 
@@ -184,6 +179,19 @@ accept_media_types: application/vnd.ims.lti.v1.ltilink
 accept_presentation_document_targets: frame,window
 content_item_return_url: http://lms.example/courses/5/external_content/success/external_tool_dialog&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
+&lt;p&gt;Some of the important paramaters are: &lt;strong&gt;accept_media_types&lt;/strong&gt;, &lt;strong&gt;accept_presentation_document_targets&lt;/strong&gt;, and 
+&lt;strong&gt;content_item_return_url&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;accept_media_types&lt;/strong&gt; is a comma separated list of MIME types the Tool Consumer supports.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;accept_presentation_document_targets&lt;/strong&gt; is a comma separated list of presentation formats the Tool Consumer supports.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;content_item_return_url&lt;/strong&gt; is where the tool provider should redirect to at the end of the content-item process.&lt;/p&gt;
+
+&lt;p&gt;After the Tool Provider receives the &lt;code&gt;ContentItemSelectionRequest&lt;/code&gt; message it will need to send back a 
+&lt;code&gt;ContentItemSelection&lt;/code&gt; message that includes the &lt;code&gt;content-items&lt;/code&gt; they wish to send back. An example of this message is 
+shown below:&lt;/p&gt;
+
 &lt;h3 id=&quot;contentitemselection-tool-consumer---tool-provider&quot;&gt;ContentItemSelection: Tool Consumer &amp;lt;- Tool Provider&lt;/h3&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;lti_message_type: ContentItemSelection
@@ -192,21 +200,25 @@ content_items: {
                  &amp;quot;@context&amp;quot;: &amp;quot;http://purl.imsglobal.org/ctx/lti/v1/ContentItem&amp;quot;,
                  &amp;quot;@graph&amp;quot;: [
                    {
-                     &amp;quot;@type&amp;quot;: &amp;quot;LtiLink&amp;quot;,
+                     &amp;quot;@type&amp;quot;: &amp;quot;LtiLinkItem&amp;quot;,
                      &amp;quot;@id&amp;quot;: &amp;quot;http://example.com/messages/launch&amp;quot;,
                      &amp;quot;url&amp;quot;: &amp;quot;http://example.com/messages/launch&amp;quot;,
                      &amp;quot;title&amp;quot;: &amp;quot;test&amp;quot;,
                      &amp;quot;text&amp;quot;: &amp;quot;text&amp;quot;,
                      &amp;quot;mediaType&amp;quot;: &amp;quot;application/vnd.ims.lti.v1.ltilink&amp;quot;,
-                     &amp;quot;placementAdvice&amp;quot;: {
-                       &amp;quot;displayWidth&amp;quot;: 800,
-                       &amp;quot;presentationDocumentTarget&amp;quot;: &amp;quot;frame&amp;quot;,
-                       &amp;quot;displayHeight&amp;quot;: 600
+                     &amp;quot;placementAdvice&amp;quot;: {                       
+                       &amp;quot;presentationDocumentTarget&amp;quot;: &amp;quot;frame&amp;quot;
                      }
                    }
                  ]
                }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
+&lt;p&gt;The main points of interest here is the &lt;code&gt;content_items&lt;/code&gt; parameter. It contains a json object that includes an array of 
+content-item objects.  Inside the json object, the &lt;code&gt;@graph&lt;/code&gt; object contains an array that holds all of the content-item 
+objects.&lt;/p&gt;
+
+&lt;p&gt;The content-item object in this example is sending back a single LTI link that is to be launched in the current frame. 
+the &lt;code&gt;url&lt;/code&gt; specifies the lti launch point, and the &lt;code&gt;mediaType&lt;/code&gt; specifies that it is an lti launch.&lt;/p&gt;
 </description>
         <pubDate>Tue, 09 Jun 2015 03:54:57 -0600</pubDate>
         <link>http://instructure.github.io/lti_docs/content-item/2015/06/09/content-item-getting-started.html</link>

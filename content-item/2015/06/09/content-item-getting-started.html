@@ -112,15 +112,10 @@ to be placed in the the tool consumer.</p>
   </li>
 </ul>
 
-<h2 id="content-item-flow">Content-Item Flow</h2>
+<h2 id="content-item-process">Content-Item Process</h2>
 
-<p>The content-item flow looks from a high level looks like this:</p>
-
-<blockquote>
-  <p>insert swim lane diagram here to show flow of content-item</p>
-</blockquote>
-
-<h2 id="content-item-sample-messages">Content-Item Sample Messages</h2>
+<p>The first step in the content-item process is the sending of the <code>ContentItemSelectionRequest</code> message from the Tool 
+Consumer to the Tool Provider.  An example message is included below:</p>
 
 <h3 id="contentitemrequest-tool-consumer---tool-provider">ContentItemRequest: Tool Consumer -&gt; Tool Provider</h3>
 
@@ -130,6 +125,19 @@ accept_media_types: application/vnd.ims.lti.v1.ltilink
 accept_presentation_document_targets: frame,window
 content_item_return_url: http://lms.example/courses/5/external_content/success/external_tool_dialog</code></pre></div>
 
+<p>Some of the important paramaters are: <strong>accept_media_types</strong>, <strong>accept_presentation_document_targets</strong>, and 
+<strong>content_item_return_url</strong>.</p>
+
+<p><strong>accept_media_types</strong> is a comma separated list of MIME types the Tool Consumer supports.</p>
+
+<p><strong>accept_presentation_document_targets</strong> is a comma separated list of presentation formats the Tool Consumer supports.</p>
+
+<p><strong>content_item_return_url</strong> is where the tool provider should redirect to at the end of the content-item process.</p>
+
+<p>After the Tool Provider receives the <code>ContentItemSelectionRequest</code> message it will need to send back a 
+<code>ContentItemSelection</code> message that includes the <code>content-items</code> they wish to send back. An example of this message is 
+shown below:</p>
+
 <h3 id="contentitemselection-tool-consumer---tool-provider">ContentItemSelection: Tool Consumer &lt;- Tool Provider</h3>
 
 <div class="highlight"><pre><code class="language-text" data-lang="text">lti_message_type: ContentItemSelection
@@ -138,21 +146,25 @@ content_items: {
                  &quot;@context&quot;: &quot;http://purl.imsglobal.org/ctx/lti/v1/ContentItem&quot;,
                  &quot;@graph&quot;: [
                    {
-                     &quot;@type&quot;: &quot;LtiLink&quot;,
+                     &quot;@type&quot;: &quot;LtiLinkItem&quot;,
                      &quot;@id&quot;: &quot;http://example.com/messages/launch&quot;,
                      &quot;url&quot;: &quot;http://example.com/messages/launch&quot;,
                      &quot;title&quot;: &quot;test&quot;,
                      &quot;text&quot;: &quot;text&quot;,
                      &quot;mediaType&quot;: &quot;application/vnd.ims.lti.v1.ltilink&quot;,
-                     &quot;placementAdvice&quot;: {
-                       &quot;displayWidth&quot;: 800,
-                       &quot;presentationDocumentTarget&quot;: &quot;frame&quot;,
-                       &quot;displayHeight&quot;: 600
+                     &quot;placementAdvice&quot;: {                       
+                       &quot;presentationDocumentTarget&quot;: &quot;frame&quot;
                      }
                    }
                  ]
                }</code></pre></div>
 
+<p>The main points of interest here is the <code>content_items</code> parameter. It contains a json object that includes an array of 
+content-item objects.  Inside the json object, the <code>@graph</code> object contains an array that holds all of the content-item 
+objects.</p>
+
+<p>The content-item object in this example is sending back a single LTI link that is to be launched in the current frame. 
+the <code>url</code> specifies the lti launch point, and the <code>mediaType</code> specifies that it is an lti launch.</p>
 
   </article>
 
