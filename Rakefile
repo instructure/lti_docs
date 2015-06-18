@@ -10,6 +10,11 @@ end
 desc "Deploy to Github Pages"
 task :deploy do
   puts "## Deploying to Github Pages"
+  puts"## Reseting gh-pages to origin/gh-pages"
+  cd "_site" do
+    system "git fetch"
+    system "git reset origin/gh-pages --hard"
+  end
 
   puts "## Generating site"
   system "grunt build"
