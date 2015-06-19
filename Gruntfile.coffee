@@ -37,8 +37,8 @@ module.exports = (grunt) ->
       jekyll:
         cmd: "jekyll build --trace"
 
-      jekyll_serve:
-        cmd: "jekyll serve --baseurl ''"
+      jekyll_local:
+        cmd: "jekyll build --trace --config _config.local.yml"
 
     watch:
       options:
@@ -56,7 +56,7 @@ module.exports = (grunt) ->
           "*.md"
         ]
         tasks: [
-          "exec:jekyll"
+          "exec:jekyll_local"
         ]
 
     connect:
@@ -73,8 +73,18 @@ module.exports = (grunt) ->
 
   grunt.registerTask "serve", [
     "copy"
-    "exec:jekyll_serve"
+    "local_config"
+    "exec:jekyll_local"
+    "connect:server"
+    "watch"
   ]
+
+  grunt.registerTask 'local_config', 'create a local config file', ->
+    YAML = require 'yamljs'
+    conf = grunt.file.readYAML '_config.yml'
+    conf['baseurl'] = ''
+    grunt.file.write '_config.local.yml', YAML.stringify(conf)
+
 
   grunt.registerTask "default", [
     "serve"
