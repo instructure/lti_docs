@@ -38,7 +38,7 @@ module.exports = (grunt) ->
         cmd: "jekyll build --trace"
 
       jekyll_local:
-        cmd: "jekyll build --trace --config _config.local.yml"
+        cmd: "jekyll build --trace --drafts --config _config.local.yml"
 
     watch:
       options:
