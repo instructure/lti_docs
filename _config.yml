@@ -1,5 +1,5 @@
 # Site settings
-title: LTI Documentation
+title: LTI™ Documentation
 baseurl: "/lti_docs" # the subpath of your site, e.g. /blog/
 url: "http://instructure.github.io" # the base hostname & protocol for your site
 twitter_username: instructure
