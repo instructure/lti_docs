@@ -8,8 +8,6 @@ dl, dd, ol, ul, figure {
     padding: 0;
 }
 
-
-
 /**
  * Basic styling
  */
@@ -201,4 +199,33 @@ pre {
             fill: $grey-color;
         }
     }
+}
+
+/**
+* Navigation
+*/
+@media only screen and (min-width : 768px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+.navbar {
+  .navbar-brand {
+    color: white;
+  }
+
+  .navbar-brand:hover {
+    color: #9d9d9d;
+  }
+}
+
+.nav {
+  .dropdown-menu {
+    background-color: transparent;
+  }
+
+  .section-title {
+    font-size: 17px;
+  }
 }
