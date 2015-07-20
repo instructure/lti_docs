@@ -5,8 +5,8 @@
     <description></description>
     <link>http://instructure.github.io/lti_docs/</link>
     <atom:link href="http://instructure.github.io/lti_docs/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 13 Jul 2015 16:18:15 -0600</pubDate>
-    <lastBuildDate>Mon, 13 Jul 2015 16:18:15 -0600</lastBuildDate>
+    <pubDate>Mon, 20 Jul 2015 09:06:29 -0600</pubDate>
+    <lastBuildDate>Mon, 20 Jul 2015 09:06:29 -0600</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -82,6 +82,9 @@ objects.&lt;/p&gt;
 
 &lt;p&gt;The content-item object in this example is sending back a single LTI link that is to be launched in the current frame. 
 the &lt;code&gt;url&lt;/code&gt; specifies the lti launch point, and the &lt;code&gt;mediaType&lt;/code&gt; specifies that it is an lti launch.&lt;/p&gt;
+
+&lt;h3 id=&quot;links&quot;&gt;Links&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.imsglobal.org/lti/&quot;&gt;IMS Documentation&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 09 Jun 2015 03:54:57 -0600</pubDate>
         <link>http://instructure.github.io/lti_docs/content-item/2015/06/09/content-item-getting-started.html</link>
