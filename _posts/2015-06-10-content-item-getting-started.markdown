@@ -77,3 +77,7 @@ objects.
  
 The content-item object in this example is sending back a single LTI link that is to be launched in the current frame. 
 the `url` specifies the lti launch point, and the `mediaType` specifies that it is an lti launch.
+
+
+###Links###
+[IMS Documentation](http://www.imsglobal.org/lti/) 
