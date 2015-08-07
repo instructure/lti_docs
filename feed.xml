@@ -5,9 +5,78 @@
     <description></description>
     <link>http://instructure.github.io/lti_docs/</link>
     <atom:link href="http://instructure.github.io/lti_docs/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 20 Jul 2015 09:06:29 -0600</pubDate>
-    <lastBuildDate>Mon, 20 Jul 2015 09:06:29 -0600</lastBuildDate>
+    <pubDate>Fri, 07 Aug 2015 15:10:35 -0600</pubDate>
+    <lastBuildDate>Fri, 07 Aug 2015 15:10:35 -0600</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Configuring Content-item</title>
+        <description>&lt;p&gt;To use content-item, the tool provider must be configured correctly. The following is an overview of how to configure the tool provider to use content-item.&lt;/p&gt;
+
+&lt;h2 id=&quot;lti-tool-xml-configuration&quot;&gt;LTI Tool XML Configuration&lt;/h2&gt;
+&lt;p&gt;Below is an example of a bare-bones tool provider LTI configuration that &lt;em&gt;does not&lt;/em&gt; use content-item:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;cartridge_basiclti_link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.imsglobal.org/xsd/imslticc_v1p0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:blti=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.imsglobal.org/xsd/imsbasiclti_v1p0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:lticm=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.imsglobal.org/xsd/imslticm_v1p0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:lticp=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.imsglobal.org/xsd/imslticp_v1p0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.imsglobal.org/xsd/imslticc_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticc_v1p0.xsd http://www.imsglobal.org/xsd/imsbasiclti_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imsbasiclti_v1p0p1.xsd http://www.imsglobal.org/xsd/imslticm_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticm_v1p0.xsd http://www.imsglobal.org/xsd/imslticp_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticp_v1p0.xsd&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;blti:title&amp;gt;&lt;/span&gt;Example Tool Provider&lt;span class=&quot;nt&quot;&gt;&amp;lt;/blti:title&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;blti:description&amp;gt;&lt;/span&gt;This is a Sample Tool Provider.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/blti:description&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;blti:launch_url&amp;gt;&lt;/span&gt;http://localhost:4040/messages/blti&lt;span class=&quot;nt&quot;&gt;&amp;lt;/blti:launch_url&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;blti:extensions&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;platform=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;canvas.instructure.com&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;lticm:property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;selection_height&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;500&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lticm:property&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;lticm:property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;selection_width&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;500&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lticm:property&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/blti:extensions&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/cartridge_basiclti_link&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; for more on the basics of LTI tool configuration see &lt;a href=&quot;https://canvas.instructure.com/doc/api/file.tools_xml.html&quot;&gt;external tools documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To begin using content-item we need to specify at least one valid placement for Canvas to use. Placements are used to help the tool consumer (Canvas in this case) know where the tool should be placed within the LMS. For example, adding the following node as a child of the &lt;strong&gt;blti:extensions&lt;/strong&gt; element in the above XML would tell Canvas to add a link in the course navigation to the LTI tool:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;lticm:options&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;course_navigation&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;lticm:property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;url&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;http://localhost:4040/messages/blti&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lticm:property&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lticm:options&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Content-item is not applicable to all placements in Canvas, but can be used with the following placements:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;assignment_menu&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;discussion_menu&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;file_menu&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;module_menu&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;quiz_menu&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;wiki_page_menu&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;For our example we will use &lt;strong&gt;assignment_menu&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;To enable content-item with the &lt;strong&gt;assignment_menu&lt;/strong&gt; placement, we add lines 6-9 to the example from above:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;cartridge_basiclti_link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.imsglobal.org/xsd/imslticc_v1p0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:blti=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.imsglobal.org/xsd/imsbasiclti_v1p0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:lticm=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.imsglobal.org/xsd/imslticm_v1p0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:lticp=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.imsglobal.org/xsd/imslticp_v1p0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.imsglobal.org/xsd/imslticc_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticc_v1p0.xsd http://www.imsglobal.org/xsd/imsbasiclti_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imsbasiclti_v1p0p1.xsd http://www.imsglobal.org/xsd/imslticm_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticm_v1p0.xsd http://www.imsglobal.org/xsd/imslticp_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticp_v1p0.xsd&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;blti:title&amp;gt;&lt;/span&gt;Example Tool Provider&lt;span class=&quot;nt&quot;&gt;&amp;lt;/blti:title&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;blti:description&amp;gt;&lt;/span&gt;This is a Sample Tool Provider.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/blti:description&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;blti:launch_url&amp;gt;&lt;/span&gt;http://localhost:4040/messages/blti&lt;span class=&quot;nt&quot;&gt;&amp;lt;/blti:launch_url&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;blti:extensions&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;platform=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;canvas.instructure.com&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;lticm:options&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;assignment_menu&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt;       &lt;span class=&quot;nt&quot;&gt;&amp;lt;lticm:property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;message_type&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;ContentItemSelection&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lticm:property&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt;       &lt;span class=&quot;nt&quot;&gt;&amp;lt;lticm:property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;url&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;http://localhost:4040/messages/blti&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lticm:property&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/lticm:options&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;lticm:property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;icon_url&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;http://localhost:4040/selector.png&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lticm:property&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;lticm:property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;selection_height&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;500&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lticm:property&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;lticm:property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;selection_width&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;500&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lticm:property&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/blti:extensions&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/cartridge_basiclti_link&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Adding the element on line 6 lets Canvas know the tool should be placed in the assignments menu. Line 7 tells Canvas the tool is using content-item, and line 8 provides Canvas the launch URL.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 04 Aug 2015 04:18:00 -0600</pubDate>
+        <link>http://instructure.github.io/lti_docs/content-item/2015/08/04/content-item-configure-tool.html</link>
+        <guid isPermaLink="true">http://instructure.github.io/lti_docs/content-item/2015/08/04/content-item-configure-tool.html</guid>
+        
+        
+        <category>content-item</category>
+        
+      </item>
     
       <item>
         <title>Getting Started</title>

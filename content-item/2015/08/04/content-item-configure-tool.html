@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Configuring Content-item</title>
+  <meta name="description" content="To use content-item, the tool provider must be configured correctly. The following is an overview of how to configure the tool provider to use content-item.">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/lti_docs/vendor/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/lti_docs/css/main.css">
+  <link rel="canonical" href="http://instructure.github.io/lti_docs/content-item/2015/08/04/content-item-configure-tool.html">
+  <link rel="alternate" type="application/rss+xml" title="LTI™ Documentation" href="http://instructure.github.io/lti_docs/feed.xml" />
+
+</head>
+
+  <script src="/lti_docs/vendor/js/jquery.min.js"></script>
+  <script src="/lti_docs/vendor/js/bootstrap.min.js"></script>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/lti_docs/content-item/2015/06/09/content-item-getting-started.html">LTI™ Documentation</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right mobile-only">
+        
+        <li>
+          <a class="dropdown-menu" data-toggle="dropdown" role="button" href="#" aria-controls="collapseSubsection">
+            <span class="section-title">ContentItem</span>
+          </a>
+          <ul class="dropdown-menu">
+            
+            
+            <li >
+              <a href="/lti_docs/content-item/2015/06/09/content-item-getting-started.html">
+                Getting Started
+                
+              </a>
+            </li>
+            
+            <li class="active">
+              <a href="/lti_docs/content-item/2015/08/04/content-item-configure-tool.html">
+                Configuring Content-item
+                
+                <span class="sr-only">(current)</span>
+                
+              </a>
+            </li>
+            
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+  
+  <div>
+    
+    
+    
+    
+    <a data-toggle="collapse" href="#content-item-section" aria-expanded="true" aria-controls="collapseSubsection">
+      <span class="section-title">ContentItem</span>
+    </a>
+    <ul id="content-item-section" class="nav nav-sidebar collapse in">
+      
+      
+      <li >
+          <a href="/lti_docs/content-item/2015/06/09/content-item-getting-started.html">
+            Getting Started
+            
+          </a>
+        </li>
+      
+      <li class="active">
+          <a href="/lti_docs/content-item/2015/08/04/content-item-configure-tool.html">
+            Configuring Content-item
+            
+              <span class="sr-only">(current)</span>
+            
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+</div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+          <div class="main">
+            <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">
+      Configuring Content-item
+      <a class="edit-page-link" href="https://github.com/instructure/lti_docs/tree/master/_posts/2015-08-4-content-item-configure-tool.markdown" target="_blank">Edit on GitHub</a>
+    </h1>
+  </header>
+
+  <article class="post-content">
+    <p>To use content-item, the tool provider must be configured correctly. The following is an overview of how to configure the tool provider to use content-item.</p>
+
+<h2 id="lti-tool-xml-configuration">LTI Tool XML Configuration</h2>
+<p>Below is an example of a bare-bones tool provider LTI configuration that <em>does not</em> use content-item:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><span class="nt">&lt;cartridge_basiclti_link</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.imsglobal.org/xsd/imslticc_v1p0&quot;</span> <span class="na">xmlns:blti=</span><span class="s">&quot;http://www.imsglobal.org/xsd/imsbasiclti_v1p0&quot;</span> <span class="na">xmlns:lticm=</span><span class="s">&quot;http://www.imsglobal.org/xsd/imslticm_v1p0&quot;</span> <span class="na">xmlns:lticp=</span><span class="s">&quot;http://www.imsglobal.org/xsd/imslticp_v1p0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.imsglobal.org/xsd/imslticc_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticc_v1p0.xsd http://www.imsglobal.org/xsd/imsbasiclti_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imsbasiclti_v1p0p1.xsd http://www.imsglobal.org/xsd/imslticm_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticm_v1p0.xsd http://www.imsglobal.org/xsd/imslticp_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticp_v1p0.xsd&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;blti:title&gt;</span>Example Tool Provider<span class="nt">&lt;/blti:title&gt;</span>
+  <span class="nt">&lt;blti:description&gt;</span>This is a Sample Tool Provider.<span class="nt">&lt;/blti:description&gt;</span>
+  <span class="nt">&lt;blti:launch_url&gt;</span>http://localhost:4040/messages/blti<span class="nt">&lt;/blti:launch_url&gt;</span>
+  <span class="nt">&lt;blti:extensions</span> <span class="na">platform=</span><span class="s">&quot;canvas.instructure.com&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;lticm:property</span> <span class="na">name=</span><span class="s">&quot;selection_height&quot;</span><span class="nt">&gt;</span>500<span class="nt">&lt;/lticm:property&gt;</span>
+    <span class="nt">&lt;lticm:property</span> <span class="na">name=</span><span class="s">&quot;selection_width&quot;</span><span class="nt">&gt;</span>500<span class="nt">&lt;/lticm:property&gt;</span>
+  <span class="nt">&lt;/blti:extensions&gt;</span>
+<span class="nt">&lt;/cartridge_basiclti_link&gt;</span></code></pre></div>
+
+<p><strong>Note:</strong> for more on the basics of LTI tool configuration see <a href="https://canvas.instructure.com/doc/api/file.tools_xml.html">external tools documentation</a>.</p>
+
+<p>To begin using content-item we need to specify at least one valid placement for Canvas to use. Placements are used to help the tool consumer (Canvas in this case) know where the tool should be placed within the LMS. For example, adding the following node as a child of the <strong>blti:extensions</strong> element in the above XML would tell Canvas to add a link in the course navigation to the LTI tool:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;lticm:options</span> <span class="na">name=</span><span class="s">&quot;course_navigation&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;lticm:property</span> <span class="na">name=</span><span class="s">&quot;url&quot;</span><span class="nt">&gt;</span>http://localhost:4040/messages/blti<span class="nt">&lt;/lticm:property&gt;</span>
+<span class="nt">&lt;/lticm:options&gt;</span></code></pre></div>
+
+<p>Content-item is not applicable to all placements in Canvas, but can be used with the following placements:</p>
+
+<p><strong>assignment_menu</strong></p>
+
+<p><strong>discussion_menu</strong></p>
+
+<p><strong>file_menu</strong></p>
+
+<p><strong>module_menu</strong></p>
+
+<p><strong>quiz_menu</strong></p>
+
+<p><strong>wiki_page_menu</strong></p>
+
+<p>For our example we will use <strong>assignment_menu</strong>.</p>
+
+<p>To enable content-item with the <strong>assignment_menu</strong> placement, we add lines 6-9 to the example from above:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="lineno"> 1</span> <span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><span class="nt">&lt;cartridge_basiclti_link</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.imsglobal.org/xsd/imslticc_v1p0&quot;</span> <span class="na">xmlns:blti=</span><span class="s">&quot;http://www.imsglobal.org/xsd/imsbasiclti_v1p0&quot;</span> <span class="na">xmlns:lticm=</span><span class="s">&quot;http://www.imsglobal.org/xsd/imslticm_v1p0&quot;</span> <span class="na">xmlns:lticp=</span><span class="s">&quot;http://www.imsglobal.org/xsd/imslticp_v1p0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.imsglobal.org/xsd/imslticc_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticc_v1p0.xsd http://www.imsglobal.org/xsd/imsbasiclti_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imsbasiclti_v1p0p1.xsd http://www.imsglobal.org/xsd/imslticm_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticm_v1p0.xsd http://www.imsglobal.org/xsd/imslticp_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticp_v1p0.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="lineno"> 2</span>   <span class="nt">&lt;blti:title&gt;</span>Example Tool Provider<span class="nt">&lt;/blti:title&gt;</span>
+<span class="lineno"> 3</span>   <span class="nt">&lt;blti:description&gt;</span>This is a Sample Tool Provider.<span class="nt">&lt;/blti:description&gt;</span>
+<span class="lineno"> 4</span>   <span class="nt">&lt;blti:launch_url&gt;</span>http://localhost:4040/messages/blti<span class="nt">&lt;/blti:launch_url&gt;</span>
+<span class="lineno"> 5</span>   <span class="nt">&lt;blti:extensions</span> <span class="na">platform=</span><span class="s">&quot;canvas.instructure.com&quot;</span><span class="nt">&gt;</span>
+<span class="lineno"> 6</span>     <span class="nt">&lt;lticm:options</span> <span class="na">name=</span><span class="s">&quot;assignment_menu&quot;</span><span class="nt">&gt;</span>
+<span class="lineno"> 7</span>       <span class="nt">&lt;lticm:property</span> <span class="na">name=</span><span class="s">&quot;message_type&quot;</span><span class="nt">&gt;</span>ContentItemSelection<span class="nt">&lt;/lticm:property&gt;</span>
+<span class="lineno"> 8</span>       <span class="nt">&lt;lticm:property</span> <span class="na">name=</span><span class="s">&quot;url&quot;</span><span class="nt">&gt;</span>http://localhost:4040/messages/blti<span class="nt">&lt;/lticm:property&gt;</span>
+<span class="lineno"> 9</span>     <span class="nt">&lt;/lticm:options&gt;</span>
+<span class="lineno">10</span>     <span class="nt">&lt;lticm:property</span> <span class="na">name=</span><span class="s">&quot;icon_url&quot;</span><span class="nt">&gt;</span>http://localhost:4040/selector.png<span class="nt">&lt;/lticm:property&gt;</span>
+<span class="lineno">11</span>     <span class="nt">&lt;lticm:property</span> <span class="na">name=</span><span class="s">&quot;selection_height&quot;</span><span class="nt">&gt;</span>500<span class="nt">&lt;/lticm:property&gt;</span>
+<span class="lineno">12</span>     <span class="nt">&lt;lticm:property</span> <span class="na">name=</span><span class="s">&quot;selection_width&quot;</span><span class="nt">&gt;</span>500<span class="nt">&lt;/lticm:property&gt;</span>
+<span class="lineno">13</span>   <span class="nt">&lt;/blti:extensions&gt;</span>
+<span class="lineno">14</span> <span class="nt">&lt;/cartridge_basiclti_link&gt;</span></code></pre></div>
+
+<p>Adding the element on line 6 lets Canvas know the tool should be placed in the assignments menu. Line 7 tells Canvas the tool is using content-item, and line 8 provides Canvas the launch URL.</p>
+
+  </article>
+
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
