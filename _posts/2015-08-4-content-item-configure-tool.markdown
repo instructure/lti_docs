@@ -53,7 +53,7 @@ To enable content-item with the **assignment_menu** placement, we add lines 6-9 
   <blti:launch_url>http://localhost:4040/messages/blti</blti:launch_url>
   <blti:extensions platform="canvas.instructure.com">
     <lticm:options name="assignment_menu">
-      <lticm:property name="message_type">ContentItemSelection</lticm:property>
+      <lticm:property name="message_type">ContentItemSelectionRequest</lticm:property>
       <lticm:property name="url">http://localhost:4040/messages/blti</lticm:property>
     </lticm:options>
     <lticm:property name="icon_url">http://localhost:4040/selector.png</lticm:property>
