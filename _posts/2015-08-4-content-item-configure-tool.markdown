@@ -31,17 +31,15 @@ To begin using content-item we need to specify at least one valid placement for 
 
 Content-item is not applicable to all placements in Canvas, but can be used with the following placements:
 
-**assignment_menu**
+**editor_button**
 
-**discussion_menu**
+**homework_submission**
 
-**file_menu**
+**migration_selection**
 
-**module_menu**
+**assignment_selection**
 
-**quiz_menu**
-
-**wiki_page_menu**
+**link_selection**
 
 For our example we will use **assignment_menu**.
 
