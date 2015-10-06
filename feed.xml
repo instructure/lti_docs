@@ -5,8 +5,8 @@
     <description></description>
     <link>http://instructure.github.io/lti_docs/</link>
     <atom:link href="http://instructure.github.io/lti_docs/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 01 Sep 2015 15:04:28 -0600</pubDate>
-    <lastBuildDate>Tue, 01 Sep 2015 15:04:28 -0600</lastBuildDate>
+    <pubDate>Tue, 06 Oct 2015 11:19:07 -0600</pubDate>
+    <lastBuildDate>Tue, 06 Oct 2015 11:19:07 -0600</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -46,9 +46,9 @@
 
 &lt;p&gt;&lt;strong&gt;link_selection&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;For our example we will use &lt;strong&gt;assignment_menu&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;For our example we will use &lt;strong&gt;assignment_selection&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;To enable content-item with the &lt;strong&gt;assignment_menu&lt;/strong&gt; placement, we add lines 6-9 to the example from above:&lt;/p&gt;
+&lt;p&gt;To enable content-item with the &lt;strong&gt;assignment_selection&lt;/strong&gt; placement, we add lines 6-9 to the example from above:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;cartridge_basiclti_link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.imsglobal.org/xsd/imslticc_v1p0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:blti=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.imsglobal.org/xsd/imsbasiclti_v1p0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:lticm=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.imsglobal.org/xsd/imslticm_v1p0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:lticp=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.imsglobal.org/xsd/imslticp_v1p0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.imsglobal.org/xsd/imslticc_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticc_v1p0.xsd http://www.imsglobal.org/xsd/imsbasiclti_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imsbasiclti_v1p0p1.xsd http://www.imsglobal.org/xsd/imslticm_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticm_v1p0.xsd http://www.imsglobal.org/xsd/imslticp_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticp_v1p0.xsd&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;blti:title&amp;gt;&lt;/span&gt;Example Tool Provider&lt;span class=&quot;nt&quot;&gt;&amp;lt;/blti:title&amp;gt;&lt;/span&gt;
